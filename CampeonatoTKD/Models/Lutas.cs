@@ -8,7 +8,7 @@ namespace CampeonatoTKD.Models
         public int Id { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime Data { get; set; }
+        public DateTime Date { get; set; }
         public double Pontos { get; set; }
         public LutasStatus Status { get; set; }
         public Atleta Atleta { get; set; }
@@ -17,10 +17,10 @@ namespace CampeonatoTKD.Models
         {
         }
 
-        public Lutas(int id, DateTime data, double pontos, LutasStatus status, Atleta atleta)
+        public Lutas(int id, DateTime date, double pontos, LutasStatus status, Atleta atleta)
         {
             Id = id;
-            Data = data;
+            Date = date;
             Pontos = pontos;
             Status = status;
             Atleta = atleta;
