@@ -1,3 +1,4 @@
+using System;
 namespace CampeonatoTKD.Models.ViewModel
 {
     public class ErrorViewModel

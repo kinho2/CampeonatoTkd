@@ -1,4 +1,5 @@
 ﻿using CampeonatoTKD.Models;
+using CampeonatoTKD.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

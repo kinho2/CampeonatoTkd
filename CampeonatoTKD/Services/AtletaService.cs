@@ -1,10 +1,6 @@
-﻿using System;
-using CampeonatoTKD.Models;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CampeonatoTKD.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Data;
-
+using CampeonatoTKD.Services.Exceptions;
 
 namespace CampeonatoTKD.Services
 {
@@ -29,6 +25,36 @@ namespace CampeonatoTKD.Services
         {
             return await _context.Atletas.Include(obj => obj.Categoria).FirstOrDefaultAsync(obj => obj.Id == id);
         }
-        
+        public async Task RemoveAsync(int id)
+        {
+            try
+            {
+                var obj = await _context.Atletas.FindAsync(id);
+                _context.Atletas.Remove(obj);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException e)
+            {
+                throw new IntegrityException("Can't Delete seller because he/she has sales.");
+            }
+        }
+        public async Task UpdateAsync(Atleta obj)
+        {
+            bool hasAny = await _context.Atletas.AnyAsync(x => x.Id == obj.Id);
+            if (!hasAny)
+            {
+                throw new ApplicationExeption("Id not found");
+            }
+            try
+            {
+                _context.Update(obj);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbConcurrencyException e)
+            {
+                throw new DbConcurrencyException(e.Message);
+            }
+        }
+
     }
 }

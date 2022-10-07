@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Globalization;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+﻿using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using CampeonatoTKD.Models;
 using CampeonatoTKD.Data;
 using CampeonatoTKD.Services;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+using Microsoft.EntityFrameworkCore;
 
 namespace CampeonatoTKD
 {
@@ -40,15 +30,15 @@ namespace CampeonatoTKD
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-           /* services.AddDbContext<CampeonatoTKD>(options =>
-                    options.UseMySql(Configuration.GetConnectionString("SalesWebMvcContext"), builder =>
-    builder.MigrationsAssembly("SalesWebMvc")));/*
+            services.AddDbContext<CampeonatoTkdContext>(options =>
+                    options.UseMySql(Configuration.GetConnectionString("CampeonatoTkdContext"), builder =>
+                    builder.MigrationsAssembly("CampeonatoTKD")));
 
 
-           /* services.AddScoped<SeedingService>();
-            services.AddScoped<SellerService>();
-            services.AddScoped<DepartmentService>();
-            services.AddScoped<SalesRecordService>();*/
+            services.AddScoped<SeedingService>();
+            services.AddScoped<AtletaService>();
+            services.AddScoped<CategoriaService>();
+            services.AddScoped<LutasService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
