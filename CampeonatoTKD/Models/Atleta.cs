@@ -51,7 +51,7 @@ namespace CampeonatoTKD.Models
         }
         public double TotalLutas(DateTime initial, DateTime final)
         {
-            return Lutas.Where(sr => sr.Data >= initial && sr.Data <= final).Sum(sr => sr.Pontos);
+            return Lutas.Where(sr => sr.Date >= initial && sr.Date <= final).Sum(sr => sr.Pontos);
         }
     }
 }
