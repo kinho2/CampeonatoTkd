@@ -1,4 +1,6 @@
-﻿namespace CampeonatoTKD.Services.Exceptions
+﻿using System;
+
+namespace CampeonatoTKD.Services.Exceptions
 {
     public class ApplicationExeption : ApplicationException
     {

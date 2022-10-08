@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using CampeonatoTKD.Models;
 using CampeonatoTKD.Services;
 using CampeonatoTKD.Services.Exceptions;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using CampeonatoTKD.Models.ViewModel;
 
 namespace SalesWebMvc.Controllers
 {
@@ -133,7 +136,7 @@ namespace SalesWebMvc.Controllers
         }
         public IActionResult Error(string message)
         {
-            var viewModel = new ErrorViewModel
+            var viewModel = new CampeonatoTKD.Models.ViewModel.ErrorViewModel
             {
                 Message = message,
                 RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier

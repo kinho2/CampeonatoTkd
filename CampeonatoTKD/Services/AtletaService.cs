@@ -1,6 +1,8 @@
 ﻿using CampeonatoTKD.Models;
 using Microsoft.EntityFrameworkCore;
 using CampeonatoTKD.Services.Exceptions;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace CampeonatoTKD.Services
 {
