@@ -1,5 +1,4 @@
-using CampeonatoTKD;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -9,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SalesWebMvc
+namespace CampeonatoTKD
 {
     public class Program
     {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 namespace CampeonatoTKD.Models
 {
@@ -23,7 +24,7 @@ namespace CampeonatoTKD.Models
         }
         public double TotalAtletas(DateTime initial, DateTime final)
         {
-            return Atletas.Sum(atletas => atletas.TotalLutas(initial,final));
+            return Atletas.Sum(atletas => atletas.TotalLutas(initial, final));
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿using CampeonatoTKD.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CampeonatoTKD.Services
 {
@@ -7,7 +10,7 @@ namespace CampeonatoTKD.Services
     {
         private readonly CampeonatoTkdContext _context;
 
-        public  CategoriaService(CampeonatoTkdContext context)
+        public CategoriaService(CampeonatoTkdContext context)
         {
             _context = context;
         }
