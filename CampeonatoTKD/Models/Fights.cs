@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CampeonatoTKD.Models
 {
-    public class Lutas
+    public class Fights
     {
         public int Id { get; set; }
 
@@ -14,11 +14,11 @@ namespace CampeonatoTKD.Models
         public StatusLutas Status { get; set; }
         public Atleta Atleta { get; set; }
 
-        public Lutas()
+        public Fights()
         {
         }
 
-        public Lutas(int id, DateTime date, double pontos, StatusLutas status, Atleta atleta)
+        public Fights(int id, DateTime date, double pontos, StatusLutas status, Atleta atleta)
         {
             Id = id;
             Date = date;

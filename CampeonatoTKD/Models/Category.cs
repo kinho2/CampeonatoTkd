@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 namespace CampeonatoTKD.Models
 {
-    public class Categoria
+    public class Category
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Atleta> Atletas { get; set; } = new List<Atleta>();
 
-        public Categoria()
+        public Category()
         {
         }
 
-        public Categoria(int id, string name)
+        public Category(int id, string name)
         {
             Id = id;
             Name = name;
@@ -24,7 +24,7 @@ namespace CampeonatoTKD.Models
         }
         public double TotalAtletas(DateTime initial, DateTime final)
         {
-            return Atletas.Sum(atletas => atletas.TotalLutas(initial, final));
+            return Atletas.Sum(atletas => atletas.TotalFights(initial, final));
         }
     }
 }

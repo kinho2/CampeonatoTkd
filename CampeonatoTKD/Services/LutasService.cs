@@ -16,7 +16,7 @@ namespace CampeonatoTKD.Services
             _context = context;
         }
 
-        public async Task<List<Lutas>> FindByDateAsync(DateTime? minDate, DateTime? maxDate)
+        public async Task<List<Fights>> FindByDateAsync(DateTime? minDate, DateTime? maxDate)
         {
             var result = from obj in _context.Lutas select obj;
             if (minDate.HasValue)
@@ -29,11 +29,11 @@ namespace CampeonatoTKD.Services
             }
             return await result
                 .Include(x => x.Atleta)
-                .Include(x => x.Atleta.Categoria)
+                .Include(x => x.Atleta.Category)
                 .OrderByDescending(x => x.Date)
                 .ToListAsync();
         }
-        public async Task<List<IGrouping<Categoria,Lutas>>>FindByDateGroupingAsync(DateTime? minDate, DateTime? maxDate)
+        public async Task<List<IGrouping<Category, Fights>>>FindByDateGroupingAsync(DateTime? minDate, DateTime? maxDate)
         {
             var result = from obj in _context.Lutas select obj;
             if (minDate.HasValue)
@@ -46,9 +46,9 @@ namespace CampeonatoTKD.Services
             }
             return await result
                 .Include(x => x.Atleta)
-                .Include(x => x.Atleta.Categoria)
+                .Include(x => x.Atleta.Category)
                 .OrderByDescending(x => x.Date)
-                .GroupBy(x => x.Atleta.Categoria)
+                .GroupBy(x => x.Atleta.Category)
                 .ToListAsync();
 
         }

@@ -25,7 +25,7 @@ namespace CampeonatoTKD.Services
         }
         public async Task<Atleta> FindByIdAsync(int id)
         {
-            return await _context.Atletas.Include(obj => obj.Categoria).FirstOrDefaultAsync(obj => obj.Id == id);
+            return await _context.Atletas.Include(obj => obj.Category).FirstOrDefaultAsync(obj => obj.Id == id);
         }
         public async Task RemoveAsync(int id)
         {

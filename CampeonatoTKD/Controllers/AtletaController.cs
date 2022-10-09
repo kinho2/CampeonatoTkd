@@ -6,7 +6,7 @@ using CampeonatoTKD.Services;
 using CampeonatoTKD.Services.Exceptions;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using CampeonatoTKD.Models.ViewModel;
+
 
 namespace SalesWebMvc.Controllers
 {
@@ -14,12 +14,12 @@ namespace SalesWebMvc.Controllers
     {
 
         private readonly AtletaService _atletaService;
-        private readonly CategoriaService _categoriaService;
+        private readonly CategoryService _categoryService;
 
-        public AtletaController(AtletaService atletaService, CategoriaService categoriaService)
+        public AtletaController(AtletaService atletaService, CategoryService categoriaService)
         {
             _atletaService = atletaService;
-            _categoriaService = categoriaService;
+            _categoryService = categoriaService;
         }
 
         public async Task<IActionResult> Index()
@@ -30,8 +30,8 @@ namespace SalesWebMvc.Controllers
 
         public async Task<IActionResult> Create()
         {
-            var categorias = await _categoriaService.FindAllAsync();
-            var viewModel = new AtletaFormViewModel { Categorias = categorias };
+            var categorias = await _categoryService.FindAllAsync();
+            var viewModel = new AtletaFormViewModel { Category = categorias };
             return View(viewModel);
         }
 
@@ -41,8 +41,8 @@ namespace SalesWebMvc.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var categorias = await _categoriaService.FindAllAsync();
-                var viewModel = new AtletaFormViewModel { Atleta = atleta, Categorias = categorias };
+                var categorias = await _categoryService.FindAllAsync();
+                var viewModel = new AtletaFormViewModel { Atleta = atleta, Category = categorias };
                 return View(viewModel);
             }
 
@@ -104,8 +104,8 @@ namespace SalesWebMvc.Controllers
             {
                 return RedirectToAction(nameof(Error), new { message = "Id not found" });
             }
-            List<Categoria> categorias = await _categoriaService.FindAllAsync();
-            AtletaFormViewModel viewModel = new AtletaFormViewModel { Atleta = obj, Categorias = categorias };
+            List<Category> categories = await _categoryService.FindAllAsync();
+            AtletaFormViewModel viewModel = new AtletaFormViewModel { Atleta = obj, Category = categories };
             return View(viewModel);
         }
 
@@ -115,8 +115,8 @@ namespace SalesWebMvc.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var categorias = await _categoriaService.FindAllAsync();
-                var viewModel = new AtletaFormViewModel { Atleta = atleta, Categorias = categorias };
+                var categories = await _categoryService.FindAllAsync();
+                var viewModel = new AtletaFormViewModel { Atleta = atleta, Category = categories };
                 return View(viewModel);
             }
 

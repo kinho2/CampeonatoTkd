@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace CampeonatoTKD.Services
 {
-    public class CategoriaService
+    public class CategoryService
     {
         private readonly CampeonatoTkdContext _context;
 
-        public CategoriaService(CampeonatoTkdContext context)
+        public CategoryService(CampeonatoTkdContext context)
         {
             _context = context;
         }
 
-        public async Task<List<Categoria>> FindAllAsync()
+        public async Task<List<Category>> FindAllAsync()
         {
-            return await _context.Categoria.OrderBy(x => x.Name).ToListAsync();
+            return await _context.Category.OrderBy(x => x.Name).ToListAsync();
         }
     }
 }

@@ -9,9 +9,9 @@ namespace CampeonatoTKD
             : base(options)
         {
         }
-        public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<Category> Category { get; set; }
         public DbSet<Atleta> Atletas { get; set; }
-        public DbSet<Lutas> Lutas { get; set; }
+        public DbSet<Fights> Lutas { get; set; }
 
 
     }

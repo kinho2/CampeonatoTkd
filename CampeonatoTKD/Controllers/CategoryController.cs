@@ -6,22 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace SalesWebMvc.Controllers
 {
-    public class CategoriaController : Controller
+    public class CategoryController : Controller
     {
         private readonly CampeonatoTkdContext _context;
 
-        public CategoriaController(CampeonatoTkdContext context)
+        public CategoryController(CampeonatoTkdContext context)
         {
             _context = context;
         }
 
-        // GET: Departments
+        // GET: Category
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categoria.ToListAsync());
+            return View(await _context.Category.ToListAsync());
         }
 
-        // GET: Departments/Details/5
+        // GET: Category/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -29,39 +29,39 @@ namespace SalesWebMvc.Controllers
                 return NotFound();
             }
 
-            var department = await _context.Categoria
+            var category = await _context.Category
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (department == null)
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return View(department);
+            return View(category);
         }
 
-        // GET: Departments/Create
+        // GET: Category/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Departments/Create
+        // POST: Category/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Categoria categoria)
+        public async Task<IActionResult> Create([Bind("Id,Name")] Category category)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(categoria);
+                _context.Add(category);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(categoria);
+            return View(category);
         }
 
-        // GET: Departments/Edit/5
+        // GET: Category/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -69,7 +69,7 @@ namespace SalesWebMvc.Controllers
                 return NotFound();
             }
 
-            var department = await _context.Categoria.FindAsync(id);
+            var department = await _context.Category.FindAsync(id);
             if (department == null)
             {
                 return NotFound();
@@ -77,14 +77,14 @@ namespace SalesWebMvc.Controllers
             return View(department);
         }
 
-        // POST: Departments/Edit/5
+        // POST: Category/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Categoria categoria)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Category category)
         {
-            if (id != categoria.Id)
+            if (id != category.Id)
             {
                 return NotFound();
             }
@@ -93,12 +93,12 @@ namespace SalesWebMvc.Controllers
             {
                 try
                 {
-                    _context.Update(categoria);
+                    _context.Update(category);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DepartmentExists(categoria.Id))
+                    if (!DepartmentExists(category.Id))
                     {
                         return NotFound();
                     }
@@ -109,10 +109,10 @@ namespace SalesWebMvc.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(categoria);
+            return View(category);
         }
 
-        // GET: Departments/Delete/5
+        // GET: Category/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -120,7 +120,7 @@ namespace SalesWebMvc.Controllers
                 return NotFound();
             }
 
-            var department = await _context.Categoria
+            var department = await _context.Category
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (department == null)
             {
@@ -130,20 +130,20 @@ namespace SalesWebMvc.Controllers
             return View(department);
         }
 
-        // POST: Departments/Delete/5
+        // POST: Category/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var department = await _context.Categoria.FindAsync(id);
-            _context.Categoria.Remove(department);
+            var department = await _context.Category.FindAsync(id);
+            _context.Category.Remove(department);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DepartmentExists(int id)
         {
-            return _context.Categoria.Any(e => e.Id == id);
+            return _context.Category.Any(e => e.Id == id);
         }
     }
 }

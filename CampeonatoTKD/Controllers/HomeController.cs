@@ -1,12 +1,8 @@
-﻿using CampeonatoTKD.Models;
+﻿using CampeonatoTKD.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace CampeonatoTKD.Controllers
+namespace SalesWebMvc.Controllers
 {
     public class HomeController : Controller
     {
@@ -17,15 +13,15 @@ namespace CampeonatoTKD.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
+            ViewData["Message"] = "Campeonato de Taekwondo.";
+            ViewData["Student"] = "Marcos Vinicius";
+            ViewData["Email"] = "marcosk2818@gmail.com";
             return View();
         }
 
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
