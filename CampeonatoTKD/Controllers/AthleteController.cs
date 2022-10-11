@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 
 
-namespace SalesWebMvc.Controllers
+namespace CampeonatoTKD.Controllers
 {
     public class AthleteController : Controller
     {

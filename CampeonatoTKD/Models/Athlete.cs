@@ -24,7 +24,7 @@ namespace CampeonatoTKD.Models
         [Required(ErrorMessage = "{0} required")]
         public DateTime BirthDate { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:F2}")]
+        [DisplayFormat(DataFormatString = "{0:F1}")]
         [Required(ErrorMessage = "{0} required")]
         public double Weight { get; set; }
         public Category Category { get; set; }

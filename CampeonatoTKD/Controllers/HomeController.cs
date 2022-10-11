@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace SalesWebMvc.Controllers
+namespace CampeonatoTKD.Controllers
 {
     public class HomeController : Controller
     {

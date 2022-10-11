@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace CampeonatoTKD.Services
 {
-    public class LutasService
+    public class FightsService
     {
         private readonly CampeonatoTkdContext _context;
 
-        public LutasService(CampeonatoTkdContext context)
+        public FightsService(CampeonatoTkdContext context)
         {
             _context = context;
         }
@@ -33,7 +33,7 @@ namespace CampeonatoTKD.Services
                 .OrderByDescending(x => x.Date)
                 .ToListAsync();
         }
-        public async Task<List<IGrouping<Category, Fights>>>FindByDateGroupingAsync(DateTime? minDate, DateTime? maxDate)
+        public async Task<List<IGrouping<Category, Fights>>> FindByFindByDateGroupingAsync(DateTime? minDate, DateTime? maxDate)
         {
             var result = from obj in _context.Lutas select obj;
             if (minDate.HasValue)

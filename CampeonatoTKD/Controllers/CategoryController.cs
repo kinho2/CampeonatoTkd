@@ -4,7 +4,7 @@ using CampeonatoTKD;
 using CampeonatoTKD.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-namespace SalesWebMvc.Controllers
+namespace CampeonatoTKD.Controllers
 {
     public class CategoryController : Controller
     {

@@ -45,7 +45,7 @@ namespace CampeonatoTKD
             services.AddScoped<SeedingService>();
             services.AddScoped<AthleteService>();
             services.AddScoped<CategoryService>();
-            services.AddScoped<LutasService>();
+            services.AddScoped<FightsService>();
         }
 
 
