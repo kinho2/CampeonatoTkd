@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 
 namespace CampeonatoTKD.Models
 {
@@ -24,8 +23,9 @@ namespace CampeonatoTKD.Models
         [Required(ErrorMessage = "{0} required")]
         public DateTime BirthDate { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:F1}")]
+        [DisplayFormat(DataFormatString = "{0:F1}"),]
         [Required(ErrorMessage = "{0} required")]
+        [Range(68.0, 200.0, ErrorMessage = "{0} must be from {1} to {2}")]
         public double Weight { get; set; }
         public Category Category { get; set; }
         public int CategoryId { get; set; }

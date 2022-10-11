@@ -60,6 +60,8 @@ namespace CampeonatoTKD
                 SupportedCultures = new List<CultureInfo> { enUs },
                 SupportedUICultures = new List<CultureInfo> { enUs },
             };
+            app.UseRequestLocalization(LocalizationsOptoes);
+
 
             if (env.IsDevelopment())
             {
