@@ -26,11 +26,11 @@
     </div>
 </nav>
 
-@foreach (var departmentGroup in Model)
+@foreach (var categoryGroup in Model)
 {
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">Department @departmentGroup.Key.Name, Total sales = @departmentGroup.Key.TotalAtletas(minDate, maxDate).ToString("F2")</h3>
+            <h3 class="panel-title">Category @categoryGroup.Key.Name, Fights</h3>
         </div>
         <div class="panel-body">
             <table class="table table-striped table-hover">
@@ -40,10 +40,10 @@
                             Date
                         </th>
                         <th>
-                            Amount
+                            Postos
                         </th>
                         <th>
-                            Seller
+                            Athlete
                         </th>
                         <th>
                             Status
@@ -51,7 +51,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in departmentGroup)
+                    @foreach (var item in categoryGroup)
                     {
                         <tr>
                             <td>

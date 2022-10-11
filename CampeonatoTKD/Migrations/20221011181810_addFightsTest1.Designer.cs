@@ -3,14 +3,16 @@ using System;
 using CampeonatoTKD;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CampeonatoTKD.Migrations
 {
     [DbContext(typeof(CampeonatoTkdContext))]
-    partial class CampeonatoTkdContextModelSnapshot : ModelSnapshot
+    [Migration("20221011181810_addFightsTest1")]
+    partial class addFightsTest1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

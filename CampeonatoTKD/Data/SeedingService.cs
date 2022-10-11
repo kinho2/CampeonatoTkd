@@ -35,16 +35,16 @@ namespace CampeonatoTKD.Data
             Athlete A6 = new Athlete(6, "Victor", "victor@gmail.com", new DateTime(2000, 2, 14), 68.5, C1);
 
             Fights L1 = new Fights(1, new DateTime (2022, 10, 07), 30, StatusLutas.Vitoria, A1);
-            L1 = new Fights(1, new DateTime(2022, 10, 07), 5, StatusLutas.Derrota, A5);
             Fights L2 = new Fights(2, new DateTime(2022, 10, 07), 25, StatusLutas.Empate, A3);
-            L2 = new Fights(2, new DateTime(2022, 10, 07), 25, StatusLutas.Empate, A4);
             Fights L3 = new Fights(3, new DateTime(2022, 10, 07), 45, StatusLutas.Vitoria, A2);
-            L3 = new Fights(3, new DateTime(2022, 10, 07), 9, StatusLutas.Derrota, A6);
+            Fights L4 = new Fights(4, new DateTime(2022, 10, 07), 9, StatusLutas.Derrota, A6);
+            Fights L5 = new Fights(5, new DateTime(2022, 10, 07), 25, StatusLutas.Empate, A4);
+            Fights L6 = new Fights(6, new DateTime(2022, 10, 07), 5, StatusLutas.Derrota, A5);
 
 
             _context.Category.AddRange(C1,C2,C3);
             _context.Athletes.AddRange(A1, A2 ,A3, A4, A5, A6);
-            _context.Fights.AddRange(L1,L2,L3);
+            _context.Fights.AddRange(L1,L2,L3,L4,L5,L6);
             _context.SaveChanges();
 
         }
