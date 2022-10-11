@@ -39,7 +39,7 @@ namespace CampeonatoTKD.Models
             Name = name;
             Email = email;
             BirthDate = birthDate;
-            Weight = Weight;
+            Weight = weight;
             Category = category;
         }
         public void AddLutas(Fights fights)
