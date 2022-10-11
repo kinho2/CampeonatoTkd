@@ -7,7 +7,7 @@ namespace CampeonatoTKD.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Atleta> Atletas { get; set; } = new List<Atleta>();
+        public ICollection<Athlete> athlete { get; set; } = new List<Athlete>();
 
         public Category()
         {
@@ -18,13 +18,13 @@ namespace CampeonatoTKD.Models
             Id = id;
             Name = name;
         }
-        public void AddAtleta(Atleta atleta)
+        public void AddAtleta(Athlete atleta)
         {
-            Atletas.Add(atleta);
+            athlete.Add(atleta);
         }
         public double TotalAtletas(DateTime initial, DateTime final)
         {
-            return Atletas.Sum(atletas => atletas.TotalFights(initial, final));
+            return athlete.Sum(atletas => atletas.TotalFights(initial, final));
         }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model CampeonatoTKD.Models.ViewModel.AthleteFormViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+<h4>Athlete</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Athlete.Name" class="control-label"></label>
+                <input asp-for="Athlete.Name" class="form-control" />
+                <span asp-validation-for="Athlete.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Athlete.Email" class="control-label"></label>
+                <input asp-for="Athlete.Email" class="form-control" />
+                <span asp-validation-for="Athlete.Email" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Athlete.BirthDate" class="control-label"></label>
+                <input asp-for="Athlete.BirthDate" class="form-control" />
+                <span asp-validation-for="Athlete.BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Athlete.Weight" class="control-label"></label>
+                <input asp-for="Athlete.Weight" class="form-control" />
+                <span asp-validation-for="Athlete.Weight" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Athlete.CategoryId" class="control-label"></label>
+                <select asp-for="Athlete.CategoryId" asp-items="@(new SelectList(Model.Category,"Id",
+                    "Name"))" class="form-control"></select>
+            </div>
+
+            <div class="form group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+  }

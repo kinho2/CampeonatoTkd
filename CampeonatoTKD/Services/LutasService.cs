@@ -28,8 +28,8 @@ namespace CampeonatoTKD.Services
                 result = result.Where(x => x.Date <= maxDate.Value);
             }
             return await result
-                .Include(x => x.Atleta)
-                .Include(x => x.Atleta.Category)
+                .Include(x => x.Athlete)
+                .Include(x => x.Athlete.Category)
                 .OrderByDescending(x => x.Date)
                 .ToListAsync();
         }
@@ -45,10 +45,10 @@ namespace CampeonatoTKD.Services
                 result = result.Where(x => x.Date <= maxDate.Value);
             }
             return await result
-                .Include(x => x.Atleta)
-                .Include(x => x.Atleta.Category)
+                .Include(x => x.Athlete)
+                .Include(x => x.Athlete.Category)
                 .OrderByDescending(x => x.Date)
-                .GroupBy(x => x.Atleta.Category)
+                .GroupBy(x => x.Athlete.Category)
                 .ToListAsync();
 
         }

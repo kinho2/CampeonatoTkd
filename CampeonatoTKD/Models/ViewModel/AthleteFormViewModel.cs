@@ -2,9 +2,9 @@
 
 namespace CampeonatoTKD.Models.ViewModel
 {
-    public class AtletaFormViewModel
+    public class AthleteFormViewModel
     {
-        public Atleta Atleta { get; set; }
+        public Athlete Athlete { get; set; }
         public ICollection<Category> Category { get; set; }
 
     }

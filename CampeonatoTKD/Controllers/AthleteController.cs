@@ -10,13 +10,13 @@ using System.Collections.Generic;
 
 namespace SalesWebMvc.Controllers
 {
-    public class AtletaController : Controller
+    public class AthleteController : Controller
     {
 
-        private readonly AtletaService _atletaService;
+        private readonly AthleteService _atletaService;
         private readonly CategoryService _categoryService;
 
-        public AtletaController(AtletaService atletaService, CategoryService categoriaService)
+        public AthleteController(AthleteService atletaService, CategoryService categoriaService)
         {
             _atletaService = atletaService;
             _categoryService = categoriaService;
@@ -31,22 +31,22 @@ namespace SalesWebMvc.Controllers
         public async Task<IActionResult> Create()
         {
             var categorias = await _categoryService.FindAllAsync();
-            var viewModel = new AtletaFormViewModel { Category = categorias };
+            var viewModel = new AthleteFormViewModel { Category = categorias };
             return View(viewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Atleta atleta)
+        public async Task<IActionResult> Create(Athlete athlete)
         {
             if (!ModelState.IsValid)
             {
                 var categorias = await _categoryService.FindAllAsync();
-                var viewModel = new AtletaFormViewModel { Atleta = atleta, Category = categorias };
+                var viewModel = new AthleteFormViewModel { Athlete = athlete, Category = categorias };
                 return View(viewModel);
             }
 
-            await _atletaService.InsertAsync(atleta);
+            await _atletaService.InsertAsync(athlete);
             return RedirectToAction(nameof(Index));
         }
 
@@ -105,28 +105,28 @@ namespace SalesWebMvc.Controllers
                 return RedirectToAction(nameof(Error), new { message = "Id not found" });
             }
             List<Category> categories = await _categoryService.FindAllAsync();
-            AtletaFormViewModel viewModel = new AtletaFormViewModel { Atleta = obj, Category = categories };
+            AthleteFormViewModel viewModel = new AthleteFormViewModel { Athlete = obj, Category = categories };
             return View(viewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Atleta atleta)
+        public async Task<IActionResult> Edit(int id, Athlete athlete)
         {
             if (!ModelState.IsValid)
             {
                 var categories = await _categoryService.FindAllAsync();
-                var viewModel = new AtletaFormViewModel { Atleta = atleta, Category = categories };
+                var viewModel = new AthleteFormViewModel { Athlete = athlete, Category = categories };
                 return View(viewModel);
             }
 
-            if (id != atleta.Id)
+            if (id != athlete.Id)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id mismatch " });
             }
             try
             {
-                await _atletaService.UpdateAsync(atleta);
+                await _atletaService.UpdateAsync(athlete);
                 return RedirectToAction(nameof(Index));
             }
             catch (ApplicationExeption e)

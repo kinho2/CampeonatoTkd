@@ -6,24 +6,24 @@ using System.Collections.Generic;
 
 namespace CampeonatoTKD.Services
 {
-    public class AtletaService
+    public class AthleteService
     {
         private readonly CampeonatoTkdContext _context;
 
-        public AtletaService(CampeonatoTkdContext context)
+        public AthleteService(CampeonatoTkdContext context)
         {
             _context = context;
         }
-        public async Task<List<Atleta>> FindAllAsync()
+        public async Task<List<Athlete>> FindAllAsync()
         {
             return await _context.Atletas.ToListAsync();
         }
-        public async Task InsertAsync(Atleta obj)
+        public async Task InsertAsync(Athlete obj)
         {
             _context.Add(obj);
             await _context.SaveChangesAsync();
         }
-        public async Task<Atleta> FindByIdAsync(int id)
+        public async Task<Athlete> FindByIdAsync(int id)
         {
             return await _context.Atletas.Include(obj => obj.Category).FirstOrDefaultAsync(obj => obj.Id == id);
         }
@@ -40,7 +40,7 @@ namespace CampeonatoTKD.Services
                 throw new IntegrityException("Can't Delete seller because he/she has sales.");
             }
         }
-        public async Task UpdateAsync(Atleta obj)
+        public async Task UpdateAsync(Athlete obj)
         {
             bool hasAny = await _context.Atletas.AnyAsync(x => x.Id == obj.Id);
             if (!hasAny)

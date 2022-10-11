@@ -27,12 +27,12 @@ namespace CampeonatoTKD.Data
             Category C3 = new Category(3, "+80kg (80kg+)");
 
 
-            Atleta A1 = new Atleta(1, "Marcos", "marcos@gmail.com", new DateTime(1998, 9, 14), 83.1, C3);
-            Atleta A2 = new Atleta(2, "Kened", "kened@gmail.com", new DateTime(1996, 8, 9), 71.8, C1);
-            Atleta A3 = new Atleta(3, "Camila", "camila@gmail.com", new DateTime(1994, 6, 20), 78.5, C2);
-            Atleta A4 = new Atleta(4, "Nataly", "Nataly@gmail.com", new DateTime(1990, 11, 20), 79.0, C2);
-            Atleta A5 = new Atleta(5, "Claudio", "claudio@gmail.com", new DateTime(1998, 3, 25), 82.0, C3);
-            Atleta A6 = new Atleta(6, "Victor", "victor@gmail.com", new DateTime(2000, 2, 14), 68.5, C1);
+            Athlete A1 = new Athlete(1, "Marcos", "marcos@gmail.com", new DateTime(1998, 9, 14), 83.1, C3);
+            Athlete A2 = new Athlete(2, "Kened", "kened@gmail.com", new DateTime(1996, 8, 9), 71.8, C1);
+            Athlete A3 = new Athlete(3, "Camila", "camila@gmail.com", new DateTime(1994, 6, 20), 78.5, C2);
+            Athlete A4 = new Athlete(4, "Nataly", "Nataly@gmail.com", new DateTime(1990, 11, 20), 79.0, C2);
+            Athlete A5 = new Athlete(5, "Claudio", "claudio@gmail.com", new DateTime(1998, 3, 25), 82.0, C3);
+            Athlete A6 = new Athlete(6, "Victor", "victor@gmail.com", new DateTime(2000, 2, 14), 68.5, C1);
 
             Fights L1 = new Fights(1, new DateTime (2022, 10, 07), 30, StatusLutas.Vitoria, A1);
             L1 = new Fights(1, new DateTime(2022, 10, 07), 5, StatusLutas.Derrota, A5);

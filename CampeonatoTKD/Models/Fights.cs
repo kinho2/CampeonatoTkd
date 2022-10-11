@@ -12,19 +12,19 @@ namespace CampeonatoTKD.Models
         public DateTime Date { get; set; }
         public double Pontos { get; set; }
         public StatusLutas Status { get; set; }
-        public Atleta Atleta { get; set; }
+        public Athlete Athlete { get; set; }
 
         public Fights()
         {
         }
 
-        public Fights(int id, DateTime date, double pontos, StatusLutas status, Atleta atleta)
+        public Fights(int id, DateTime date, double pontos, StatusLutas status, Athlete athlete)
         {
             Id = id;
             Date = date;
             Pontos = pontos;
             Status = status;
-            Atleta = atleta;
+            Athlete = athlete;
         }
     }
 }

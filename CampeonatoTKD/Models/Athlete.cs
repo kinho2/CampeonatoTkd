@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace CampeonatoTKD.Models
 {
-    public class Atleta
+    public class Athlete
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "{0} required")]
@@ -23,17 +23,20 @@ namespace CampeonatoTKD.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyy}")]
         [Required(ErrorMessage = "{0} required")]
         public DateTime BirthDate { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:F2}")]
+        [Required(ErrorMessage = "{0} required")]
         public double Weight { get; set; }
         public Category Category { get; set; }
         public int CategoryId { get; set; }
         public ICollection<Fights> Fights { get; set; } = new List<Fights>();
 
 
-        public Atleta()
+        public Athlete()
         {
         }
 
-        public Atleta(int id, string name, string email, DateTime birthDate, double weight, Category category)
+        public Athlete(int id, string name, string email, DateTime birthDate, double weight, Category category)
         {
             Id = id;
             Name = name;

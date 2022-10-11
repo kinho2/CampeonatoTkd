@@ -43,7 +43,7 @@ namespace CampeonatoTKD
                     builder.MigrationsAssembly("CampeonatoTKD")));
 
             services.AddScoped<SeedingService>();
-            services.AddScoped<AtletaService>();
+            services.AddScoped<AthleteService>();
             services.AddScoped<CategoryService>();
             services.AddScoped<LutasService>();
         }
