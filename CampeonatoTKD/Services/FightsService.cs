@@ -18,7 +18,7 @@ namespace CampeonatoTKD.Services
 
         public async Task<List<Fights>> FindByDateAsync(DateTime? minDate, DateTime? maxDate)
         {
-            var result = from obj in _context.Lutas select obj;
+            var result = from obj in _context.Fights select obj;
             if (minDate.HasValue)
             {
                 result = result.Where(x => x.Date >= minDate.Value);
@@ -35,7 +35,7 @@ namespace CampeonatoTKD.Services
         }
         public async Task<List<IGrouping<Category, Fights>>> FindByFindByDateGroupingAsync(DateTime? minDate, DateTime? maxDate)
         {
-            var result = from obj in _context.Lutas select obj;
+            var result = from obj in _context.Fights select obj;
             if (minDate.HasValue)
             {
                 result = result.Where(x => x.Date >= minDate.Value);

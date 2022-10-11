@@ -16,7 +16,7 @@ namespace CampeonatoTKD.Services
         }
         public async Task<List<Athlete>> FindAllAsync()
         {
-            return await _context.Atletas.ToListAsync();
+            return await _context.Athletes.ToListAsync();
         }
         public async Task InsertAsync(Athlete obj)
         {
@@ -25,14 +25,14 @@ namespace CampeonatoTKD.Services
         }
         public async Task<Athlete> FindByIdAsync(int id)
         {
-            return await _context.Atletas.Include(obj => obj.Category).FirstOrDefaultAsync(obj => obj.Id == id);
+            return await _context.Athletes.Include(obj => obj.Category).FirstOrDefaultAsync(obj => obj.Id == id);
         }
         public async Task RemoveAsync(int id)
         {
             try
             {
-                var obj = await _context.Atletas.FindAsync(id);
-                _context.Atletas.Remove(obj);
+                var obj = await _context.Athletes.FindAsync(id);
+                _context.Athletes.Remove(obj);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException e)
@@ -42,7 +42,7 @@ namespace CampeonatoTKD.Services
         }
         public async Task UpdateAsync(Athlete obj)
         {
-            bool hasAny = await _context.Atletas.AnyAsync(x => x.Id == obj.Id);
+            bool hasAny = await _context.Athletes.AnyAsync(x => x.Id == obj.Id);
             if (!hasAny)
             {
                 throw new ApplicationExeption("Id not found");

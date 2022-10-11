@@ -10,8 +10,8 @@ namespace CampeonatoTKD
         {
         }
         public DbSet<Category> Category { get; set; }
-        public DbSet<Athlete> Atletas { get; set; }
-        public DbSet<Fights> Lutas { get; set; }
+        public DbSet<Athlete> Athletes { get; set; }
+        public DbSet<Fights> Fights { get; set; }
 
 
     }

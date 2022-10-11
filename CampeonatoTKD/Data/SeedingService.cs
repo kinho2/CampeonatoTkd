@@ -16,8 +16,8 @@ namespace CampeonatoTKD.Data
         public void Seed()
         {
             if(_context.Category.Any() ||
-               _context.Atletas.Any() ||
-               _context.Lutas.Any())
+               _context.Athletes.Any() ||
+               _context.Fights.Any())
             {
                 return; // DB has been seeded
             }
@@ -43,8 +43,8 @@ namespace CampeonatoTKD.Data
 
 
             _context.Category.AddRange(C1,C2,C3);
-            _context.Atletas.AddRange(A1, A2 ,A3, A4, A5, A6);
-            _context.Lutas.AddRange(L1,L2,L3);
+            _context.Athletes.AddRange(A1, A2 ,A3, A4, A5, A6);
+            _context.Fights.AddRange(L1,L2,L3);
             _context.SaveChanges();
 
         }
